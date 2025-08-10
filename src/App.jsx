@@ -137,7 +137,7 @@ function App() {
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                   Join the
                   <span className="block bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-                    GFG Family
+                    GFG SRMIST Family
                   </span>
                 </h1>
                 
@@ -153,14 +153,14 @@ function App() {
                   className="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 border border-green-400/20"
                 >
                   <span className="flex items-center space-x-2">
-                    <span>🚀 Apply Now</span>
+                    <span>Apply Now</span>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                   </span>
                 </button>
-                
+{/*                 
                 <button className="text-green-400 hover:text-white border border-green-400/30 hover:border-green-400/60 font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:bg-green-400/10">
                   Learn More
-                </button>
+                </button> */}
               </div>
 
               {/* Quick Stats */}
@@ -184,8 +184,8 @@ function App() {
             <div className="space-y-8">
               {/* GFG Logo Card */}
               <div className="relative group">
-                <div className="w-48 h-48 mx-auto bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-2xl flex items-center justify-center shadow-2xl border border-green-400/30 backdrop-blur-sm hover:border-green-300/50 transition-all duration-300">
-                  <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-48 h-48 mx-auto bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-full flex items-center justify-center shadow-2xl border border-green-400/30 backdrop-blur-sm hover:border-green-300/50 transition-all duration-300">
+                  <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
                     <img 
                       src="https://play-lh.googleusercontent.com/ZI21NMObsjB7DbPU_EXRymHJL3HQpfsrB2N4CWb-diXm4xjl_13mmetYQZvcpgGf-64" 
                       alt="GFG Logo" 
@@ -194,7 +194,7 @@ function App() {
                   </div>
                 </div>
                 {/* Glow effect */}
-                <div className="absolute inset-0 w-48 h-48 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                <div className="absolute inset-0 w-48 h-48 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
               </div>
 
               {/* Feature Cards */}
