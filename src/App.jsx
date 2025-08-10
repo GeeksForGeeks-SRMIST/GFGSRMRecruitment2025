@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import AnimatedBackground from './components/AnimatedBackground'
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const handleApplyNow = () => {
     // Replace this URL with your actual Luma form URL
     window.open('https://forms.lu.ma/gfg-srmist-recruitment', '_blank')
@@ -52,48 +58,183 @@ function App() {
               <p className="text-green-400 text-sm">SRMIST Club</p>
             </div>
           </div>
+          
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#about" className="text-gray-300 hover:text-green-400 transition-colors">About</a>
             <a href="#domains" className="text-gray-300 hover:text-green-400 transition-colors">Domains</a>
             <a href="#contact" className="text-gray-300 hover:text-green-400 transition-colors">Contact</a>
           </div>
+
+          {/* Mobile Hamburger Menu */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-gray-300 hover:text-green-400 transition-colors p-2"
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span className={`w-5 h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                <span className={`w-5 h-0.5 bg-current my-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`w-5 h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Dropdown */}
+        <div className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+          <div className="pt-4 pb-2 space-y-2 border-t border-green-500/20">
+            <a 
+              href="#about" 
+              className="block px-4 py-3 text-gray-300 hover:text-green-400 hover:bg-green-500/10 rounded-lg transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About
+            </a>
+            <a 
+              href="#domains" 
+              className="block px-4 py-3 text-gray-300 hover:text-green-400 hover:bg-green-500/10 rounded-lg transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Domains
+            </a>
+            <a 
+              href="#contact" 
+              className="block px-4 py-3 text-gray-300 hover:text-green-400 hover:bg-green-500/10 rounded-lg transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative px-6 py-20 text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Join the
-              <span className="block bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
-                GFG Family
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-              Be part of SRMIST's premier technical community. Learn, grow, and innovate with like-minded developers.
-            </p>
-            <button
-              onClick={handleApplyNow}
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-            >
-              Apply Now
-            </button>
+      <section className="relative px-6 py-16 text-center overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-500/5 via-transparent to-emerald-500/5"></div>
+          <div className="absolute top-20 left-10 w-2 h-2 bg-green-400 rounded-full opacity-30 animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-3 h-3 bg-emerald-300 rounded-full opacity-20 animate-bounce"></div>
+          <div className="absolute bottom-40 left-20 w-1 h-1 bg-green-300 rounded-full opacity-25 animate-ping"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Left Column - Content */}
+            <div className="text-left space-y-8">
+              {/* Status Badge */}
+              <div className="inline-flex items-center px-4 py-2 bg-green-500/15 border border-green-400/30 rounded-full text-green-400 text-sm font-medium backdrop-blur-sm">
+                <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                Applications Open for 2025
+              </div>
+
+              {/* Main Heading */}
+              <div className="space-y-4">
+                <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                  Join the
+                  <span className="block bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+                    GFG Family
+                  </span>
+                </h1>
+                
+                <p className="text-lg text-gray-300 leading-relaxed max-w-lg">
+                  Be part of SRMIST's premier technical community. Learn, grow, and innovate with like-minded developers in an environment that fosters creativity and excellence.
+                </p>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={handleApplyNow}
+                  className="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 border border-green-400/20"
+                >
+                  <span className="flex items-center space-x-2">
+                    <span>🚀 Apply Now</span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </span>
+                </button>
+                
+                <button className="text-green-400 hover:text-white border border-green-400/30 hover:border-green-400/60 font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:bg-green-400/10">
+                  Learn More
+                </button>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="flex items-center space-x-8 pt-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">500+</div>
+                  <div className="text-sm text-green-400">Members</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">50+</div>
+                  <div className="text-sm text-green-400">Projects</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">100+</div>
+                  <div className="text-sm text-green-400">Events</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Logo & Features */}
+            <div className="space-y-8">
+              {/* GFG Logo Card */}
+              <div className="relative group">
+                <div className="w-48 h-48 mx-auto bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-2xl flex items-center justify-center shadow-2xl border border-green-400/30 backdrop-blur-sm hover:border-green-300/50 transition-all duration-300">
+                  <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <img 
+                      src="https://play-lh.googleusercontent.com/ZI21NMObsjB7DbPU_EXRymHJL3HQpfsrB2N4CWb-diXm4xjl_13mmetYQZvcpgGf-64" 
+                      alt="GFG Logo" 
+                      className="w-20 h-20 rounded-lg"
+                    />
+                  </div>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 w-48 h-48 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+              </div>
+
+              {/* Feature Cards */}
+              <div className="hidden sm:grid sm:grid-cols-2 gap-4">
+                <div className="bg-white/5 backdrop-blur-sm border border-green-500/20 rounded-lg p-4 text-center hover:border-green-400/40 transition-all duration-300">
+                  <div className="text-2xl mb-2">🎯</div>
+                  <div className="text-sm text-green-400 font-medium">Skill Development</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-sm border border-green-500/20 rounded-lg p-4 text-center hover:border-green-400/40 transition-all duration-300">
+                  <div className="text-2xl mb-2">🤝</div>
+                  <div className="text-sm text-green-400 font-medium">Networking</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-sm border border-green-500/20 rounded-lg p-4 text-center hover:border-green-400/40 transition-all duration-300">
+                  <div className="text-2xl mb-2">🏆</div>
+                  <div className="text-sm text-green-400 font-medium">Recognition</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-sm border border-green-500/20 rounded-lg p-4 text-center hover:border-green-400/40 transition-all duration-300">
+                  <div className="text-2xl mb-2">💡</div>
+                  <div className="text-sm text-green-400 font-medium">Innovation</div>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">500+</div>
-              <div className="text-green-400">Active Members</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-green-400">Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">100+</div>
-              <div className="text-green-400">Events Organized</div>
+
+          {/* Trust Indicators */}
+          <div className="mt-16 pt-8 border-t border-green-500/20">
+            <p className="text-gray-400 text-sm mb-6">Trusted by students across SRMIST</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 text-gray-500">
+              <div className="flex items-center space-x-2">
+                <span className="text-green-400">✓</span>
+                <span className="text-sm">Free Membership</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-green-400">✓</span>
+                <span className="text-sm">Industry Mentorship</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-green-400">✓</span>
+                <span className="text-sm">Career Opportunities</span>
+              </div>
             </div>
           </div>
         </div>
@@ -199,7 +340,7 @@ function App() {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">G</span>
+                    <img src="https://play-lh.googleusercontent.com/ZI21NMObsjB7DbPU_EXRymHJL3HQpfsrB2N4CWb-diXm4xjl_13mmetYQZvcpgGf-64" alt="" />
                 </div>
                 <span className="text-white font-bold">GFG SRMIST Club</span>
               </div>
@@ -226,7 +367,7 @@ function App() {
           
           <div className="border-t border-green-500/20 mt-8 pt-8 text-center">
             <p className="text-gray-400">
-              © 2024 GFG SRMIST Club. All rights reserved.
+              © 2025 GFG SRMIST Club. All rights reserved.
             </p>
           </div>
         </div>
