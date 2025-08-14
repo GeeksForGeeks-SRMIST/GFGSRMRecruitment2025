@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
 import AnimatedBackground from './components/AnimatedBackground'
+import logo from './assets/logo.png';
+import logo2 from './assets/logo2.png';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,20 +52,20 @@ function App() {
       <nav className="relative z-10 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-              <img src="https://play-lh.googleusercontent.com/ZI21NMObsjB7DbPU_EXRymHJL3HQpfsrB2N4CWb-diXm4xjl_13mmetYQZvcpgGf-64" alt="" />
+            <div className="h-10 rounded-lg flex items-center justify-center">
+              <img src={logo} alt="GeeksForGeeks Logo" className="h-[3rem]"/>
             </div>
             <div>
-              <h1 className="text-white text-xl font-bold">GFG</h1>
-              <p className="text-green-400 text-sm">SRMIST Club</p>
+              <h1 className="text-white text-2xl font-bold">GeeksforGeeks</h1>
+              <p className="text-green-400 text-sm">Campus Body SRMIST</p>
             </div>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-gray-300 hover:text-green-400 transition-colors">About</a>
-            <a href="#domains" className="text-gray-300 hover:text-green-400 transition-colors">Domains</a>
-            <a href="#contact" className="text-gray-300 hover:text-green-400 transition-colors">Contact</a>
+            <a href="#about" className="text-gray-300 hover:text-green-400 transition-colors focus:outline-none focus:text-white">About</a>
+            <a href="#domains" className="text-gray-300 hover:text-green-400 transition-colors focus:outline-none focus:text-white">Domains</a>
+            <a href="#contact" className="text-gray-300 hover:text-green-400 transition-colors focus:outline-none focus:text-white">Contact</a>
           </div>
 
           {/* Mobile Hamburger Menu */}
@@ -147,34 +149,43 @@ function App() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={handleApplyNow}
-                  className="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 border border-green-400/20"
-                >
-                  <span className="flex items-center space-x-2">
-                    <span>Apply Now</span>
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                  </span>
-                </button>
-{/*                 
-                <button className="text-green-400 hover:text-white border border-green-400/30 hover:border-green-400/60 font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:bg-green-400/10">
-                  Learn More
-                </button> */}
-              </div>
+<div className="flex flex-col sm:flex-row gap-4 mt-6">
+  {/* Apply Now */}
+  <button
+    onClick={handleApplyNow}
+    className="flex-1 group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 border border-green-400/20"
+  >
+    <span className="flex items-center justify-center space-x-2">
+      <span>Apply Now</span>
+      <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+    </span>
+  </button>
+
+  {/* Join WhatsApp Community */}
+  <a
+    href="https://chat.whatsapp.com/Bs7EM7GP6VqDBiS2CjIqfP" // Replace with actual WhatsApp link
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1 flex items-center justify-center text-green-400 hover:text-white border border-green-400/30 hover:border-green-400/60 font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:bg-green-400/10"
+  >
+    Join WhatsApp Community 📢
+  </a>
+</div>
+
+
 
               {/* Quick Stats */}
               <div className="flex items-center space-x-8 pt-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white">500+</div>
+                  <div className="text-2xl font-bold text-white">70+</div>
                   <div className="text-sm text-green-400">Members</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white">50+</div>
-                  <div className="text-sm text-green-400">Projects</div>
+                  <div className="text-2xl font-bold text-white">7+</div>
+                  <div className="text-sm text-green-400">Years Excellence</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white">100+</div>
+                  <div className="text-2xl font-bold text-white">25+</div>
                   <div className="text-sm text-green-400">Events</div>
                 </div>
               </div>
@@ -185,12 +196,8 @@ function App() {
               {/* GFG Logo Card */}
               <div className="relative group">
                 <div className="w-48 h-48 mx-auto bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-full flex items-center justify-center shadow-2xl border border-green-400/30 backdrop-blur-sm hover:border-green-300/50 transition-all duration-300">
-                  <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
-                    <img 
-                      src="https://play-lh.googleusercontent.com/ZI21NMObsjB7DbPU_EXRymHJL3HQpfsrB2N4CWb-diXm4xjl_13mmetYQZvcpgGf-64" 
-                      alt="GFG Logo" 
-                      className="w-20 h-20 rounded-lg"
-                    />
+                  <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg p-4">
+                    <img src={logo2} alt="GeeksForGeeks Logo" />
                   </div>
                 </div>
                 {/* Glow effect */}
@@ -213,7 +220,7 @@ function App() {
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm border border-green-500/20 rounded-lg p-4 text-center hover:border-green-400/40 transition-all duration-300">
                   <div className="text-2xl mb-2">💡</div>
-                  <div className="text-sm text-green-400 font-medium">Innovation</div>
+                  <div className="text-sm text-green-400 font-medium">Placement Training</div>
                 </div>
               </div>
             </div>
@@ -241,18 +248,33 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="px-6 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">About GFG SRMIST Club</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              GeeksforGeeks SRMIST Club is a vibrant technical community that fosters innovation, 
-              learning, and collaboration. We bring together passionate students to work on exciting 
-              projects, participate in hackathons, and build a strong foundation for their tech careers.
-            </p>
-          </div>
-        </div>
-      </section>
+<section id="about" className="px-6 py-20 overflow-hidden">
+  <div className="max-w-5xl mx-auto">
+    <div
+      className="group bg-gray-900/60 backdrop-blur-lg border border-green-400/10 rounded-2xl p-10 shadow-lg hover:shadow-green-500/20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]"
+    >
+      <div className="text-center">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 tracking-tight">
+          About <span className="text-green-400">GeeksforGeeks SRMIST</span>
+        </h2>
+        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <span className="text-green-400 font-semibold">GeeksforGeeks SRMIST Club</span> is more than just a tech club — 
+          it’s a <span className="text-green-300">thriving hub</span> of <span className="font-semibold">innovation</span>, learning, and limitless possibilities 🚀.
+          <br /><br />
+          We unite passionate minds from every corner of SRMIST to 
+          <span className="text-green-300"> create impactful projects</span>, 
+          <span className="text-green-300"> conquer hackathons</span>, and 
+          <span className="text-green-300"> explore cutting-edge technologies</span>.
+          <br /><br />
+          Here, you don’t just <span className="font-semibold text-green-300">learn</span> — you 
+          <span className="font-semibold text-green-400"> collaborate, build</span>, and 
+          pave the way for a <span className="text-green-300">future-ready tech career</span> with guidance from industry experts and a vibrant peer community.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Domains Section */}
       <section id="domains" className="px-6 py-20">
@@ -286,7 +308,7 @@ function App() {
       <section className="px-6 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Why Join GFG SRMIST Club?</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">Why Join GFG Campus Body?</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -339,10 +361,10 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
-                    <img src="https://play-lh.googleusercontent.com/ZI21NMObsjB7DbPU_EXRymHJL3HQpfsrB2N4CWb-diXm4xjl_13mmetYQZvcpgGf-64" alt="" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <img src={logo} alt="" />
                 </div>
-                <span className="text-white font-bold">GFG SRMIST Club</span>
+                <span className="text-white font-bold">GFG Campus Body SRMIST</span>
               </div>
               <p className="text-gray-400">
                 Empowering students through technology, innovation, and collaboration.
@@ -361,13 +383,16 @@ function App() {
             <div>
               <h3 className="text-white font-bold mb-4">Contact Info</h3>
               <p className="text-gray-400">Email: gfg@srmist.edu.in</p>
-              <p className="text-gray-400">Location: SRM Institute of Science and Technology</p>
+              <p className="text-gray-400">Whatsapp: +91 8918120382</p>
+              <p className="text-gray-400">Location: SRM Institute of Science and Technology
+SRM Nagar, Kattankulathur - 603 203
+Chengalpattu District, Tamil Nadu</p>
             </div>
           </div>
           
           <div className="border-t border-green-500/20 mt-8 pt-8 text-center">
             <p className="text-gray-400">
-              © 2025 GFG SRMIST Club. All rights reserved.
+              © 2025 GFG Campus Body SRMIST. All rights reserved.
             </p>
           </div>
         </div>
