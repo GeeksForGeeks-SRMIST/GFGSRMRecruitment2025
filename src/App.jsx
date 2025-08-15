@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import AnimatedBackground from './components/AnimatedBackground'
-import logo from './assets/logo.png';
+import logo from './assets/Logo.png';
 import logo2 from './assets/logo2.png';
 
 function App() {
