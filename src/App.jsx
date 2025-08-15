@@ -13,7 +13,7 @@ function App() {
 
   const handleApplyNow = () => {
     // Replace this URL with your actual Luma form URL
-    window.open('https://forms.lu.ma/gfg-srmist-recruitment', '_blank')
+    window.open('https://lu.ma/event/evt-kAW6MRTnxTImabb')
   }
 
   const domains = [
