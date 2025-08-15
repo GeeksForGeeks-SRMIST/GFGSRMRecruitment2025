@@ -1,6 +1,6 @@
 # GFG SRMIST Club Recruitment Landing Page
 
-A beautiful, responsive landing page for the GeeksforGeeks SRMIST Club recruitment campaign. Built with React, Tailwind CSS, and modern web technologies.
+A beautiful, responsive landing page for the GeeksforGeeks SRMIST Club recruitment campaign. Built with React, Tailwind CSS, and modern web technologies..
 
 ## Features
 
