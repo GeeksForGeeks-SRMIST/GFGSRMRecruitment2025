@@ -2,10 +2,27 @@ import React, { useState } from 'react'
 import './App.css'
 import AnimatedBackground from './components/AnimatedBackground'
 import logo from './assets/Logo.png';
+import { useEffect } from 'react';
 import logo2 from './assets/logo2.png';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+  const script = document.createElement('script');
+  script.id = 'luma-checkout';
+  script.src = 'https://embed.lu.ma/checkout-button.js';
+  script.async = true;
+  document.body.appendChild(script);
+
+  // Trigger animation after component mounts
+  setTimeout(() => setIsVisible(true), 100);
+
+  return () => {
+    document.body.removeChild(script);
+  };
+}, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -149,28 +166,31 @@ function App() {
               </div>
 
               {/* CTA Buttons */}
-<div className="flex flex-col sm:flex-row gap-4 mt-6">
-  {/* Apply Now */}
-  <button
-    onClick={handleApplyNow}
-    className="flex-1 group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 border border-green-400/20"
-  >
-    <span className="flex items-center justify-center space-x-2">
-      <span>Apply Now</span>
-      <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-    </span>
-  </button>
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <div className={`transition-all duration-1000 delay-700 transform ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
+                  <button
+                    className="flex-1 group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 border border-green-400/20 "
+                    type="button"
+                    data-luma-action="checkout"
+                    data-luma-event-id="evt-kAW6MRTnxTImabb"
+                  >
+                    <span className="relative z-10">Apply Now</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#1a9b9b] to-[#26E8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </button>
+                </div>
 
-  {/* Join WhatsApp Community */}
-  <a
-    href="https://chat.whatsapp.com/Bs7EM7GP6VqDBiS2CjIqfP" // Replace with actual WhatsApp link
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex-1 flex items-center justify-center text-green-400 hover:text-white border border-green-400/30 hover:border-green-400/60 font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:bg-green-400/10"
-  >
-    Join WhatsApp Community 📢
-  </a>
-</div>
+                {/* Join WhatsApp Community */}
+                <a
+                  href="https://chat.whatsapp.com/Bs7EM7GP6VqDBiS2CjIqfP" // Replace with actual WhatsApp link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center text-green-400 hover:text-white border border-green-400/30 hover:border-green-400/60 font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:bg-green-400/10"
+                >
+                  Join WhatsApp Community 📢
+                </a>
+              </div>
 
 
 
@@ -303,6 +323,7 @@ function App() {
           </div>
         </div>
       </section>
+      
 
       {/* Why Join Section */}
       <section className="px-6 py-20">
