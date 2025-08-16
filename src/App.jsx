@@ -268,32 +268,32 @@ function App() {
       </section>
 
       {/* About Section */}
-<section id="about" className="px-6 py-20 overflow-hidden">
-  <div className="max-w-5xl mx-auto">
-    <div
-      className="group bg-gray-900/60 backdrop-blur-lg border border-green-400/10 rounded-2xl p-10 shadow-lg hover:shadow-green-500/20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]"
-    >
-      <div className="text-center">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 tracking-tight">
-          About <span className="text-green-400">GeeksforGeeks SRMIST</span>
-        </h2>
-        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          <span className="text-green-400 font-semibold">GeeksforGeeks SRMIST Club</span> is more than just a tech club — 
-          it’s a <span className="text-green-300">thriving hub</span> of <span className="font-semibold">innovation</span>, learning, and limitless possibilities 🚀.
-          <br /><br />
-          We unite passionate minds from every corner of SRMIST to 
-          <span className="text-green-300"> create impactful projects</span>, 
-          <span className="text-green-300"> conquer hackathons</span>, and 
-          <span className="text-green-300"> explore cutting-edge technologies</span>.
-          <br /><br />
-          Here, you don’t just <span className="font-semibold text-green-300">learn</span> — you 
-          <span className="font-semibold text-green-400"> collaborate, build</span>, and 
-          pave the way for a <span className="text-green-300">future-ready tech career</span> with guidance from industry experts and a vibrant peer community.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+      <section id="about" className="px-6 py-20 overflow-hidden">
+        <div className="max-w-5xl mx-auto">
+          <div
+            className="group bg-gray-900/60 backdrop-blur-lg border border-green-400/10 rounded-2xl p-10 shadow-lg hover:shadow-green-500/20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]"
+          >
+            <div className="text-center">
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 tracking-tight">
+                About <span className="text-green-400">GeeksforGeeks SRMIST</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <span className="text-green-400 font-semibold">GeeksforGeeks SRMIST Club</span> is more than just a tech club — 
+                it’s a <span className="text-green-300">thriving hub</span> of <span className="font-semibold">innovation</span>, learning, and limitless possibilities 🚀.
+                <br /><br />
+                We unite passionate minds from every corner of SRMIST to 
+                <span className="text-green-300"> create impactful projects</span>, 
+                <span className="text-green-300"> conquer hackathons</span>, and 
+                <span className="text-green-300"> explore cutting-edge technologies</span>.
+                <br /><br />
+                Here, you don’t just <span className="font-semibold text-green-300">learn</span> — you 
+                <span className="font-semibold text-green-400"> collaborate, build</span>, and 
+                pave the way for a <span className="text-green-300">future-ready tech career</span> with guidance from industry experts and a vibrant peer community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       {/* Domains Section */}
@@ -367,12 +367,20 @@ function App() {
           <p className="text-xl text-gray-300 mb-8">
             Join hundreds of students who have already transformed their careers with GFG SRMIST Club
           </p>
-          <button
-            onClick={handleApplyNow}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-          >
-            Apply Now
-          </button>
+          <div className={`transition-all duration-1000 delay-700 transform ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
+                  <button
+                    className="flex-1 group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 border border-green-400/20 "
+                    type="button"
+                    data-luma-action="checkout"
+                    data-luma-event-id="evt-kAW6MRTnxTImabb"
+                  >
+                    <span className="relative z-10">Apply Now</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#1a9b9b] to-[#26E8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </button>
+                </div>
+
         </div>
       </section>
 
